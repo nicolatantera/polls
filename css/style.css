@@ -1,0 +1,1160 @@
+@font-face {
+  font-family: 'Rajdhani';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/rajdhani/v15/LDIxapCSOBg7S-QT7q4A.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Righteous';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/righteous/v17/1cXxaUPXBpj2rGoU7C9mjw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Russo One';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/russoone/v16/Z9XUDmZRWg6M1LvRYsH-yA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/worksans/v19/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K8nXNig.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/worksans/v19/QGY_z_wNahGAdqQ43RhVcIgYT2Xz5u32K5fQNig.ttf) format('truetype');
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Russo One", sans-serif;
+  user-select: none;
+  scroll-behavior: smooth;
+  text-decoration: none;
+  transition: all 0.5s ease;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+:root {
+  --dark-background: #544848;
+  --dark-color: #ffffff;
+  --poll-background: #edd9d9;
+  --poll-color: #1a669d;
+  --genre-background: #80c1e8;
+  --genre-color: #1a669d;
+  --votes-border: #4fa130;
+  --votes-color: #307028;
+  --question-color: #353737;
+  --id-border: #aa6e25;
+  --id-background: #ec8200;
+  --id-color: #674108;
+  --time-color: #979797;
+  --submitVote-background: #62c23f;
+  --submitVote-color: #1e5817;
+  --edit-background: #4fbcfb;
+  --edit-color: #0066ba;
+  --edit-border: #079cc5;
+  --delete-background: #ec4747;
+  --delete-color: #a51212;
+  --delete-border: #c52626;
+  --expired-background: #fe4c3c;
+  --expired-color: #ae0000;
+  --login-button-background: #42a7e6;
+  --login-button-color: #05588c;
+  --error-color: #f83d3d;
+  --error-border: #cc1212;
+  --selection-background: #f3c079;
+  --selection-color: #8b6919;
+  --poll-options: #e4e3e3;
+  --slider-background: #c4c4c4;
+  --result-winner: rgba(39, 179, 24, 0.538);
+}
+html {
+  background-color: #342e2e;
+}
+body {
+  position: relative;
+  color: var(--dark-color);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+body .image-container {
+  position: fixed;
+  top: 0;
+  z-index: -4;
+  width: 100vw;
+  height: 100vh;
+}
+body .image-container .img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.header {
+  background: linear-gradient(to bottom, rgba(179, 165, 165, 0.1) 90%, rgba(255, 255, 255, 0) 100%);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  z-index: 5;
+}
+.header div {
+  padding: 0.2rem;
+}
+.header .header-title {
+  cursor: pointer;
+}
+.header .header-title img {
+  width: 5rem;
+}
+.header .header-auth {
+  margin-left: auto;
+  margin-right: 1rem;
+  font-size: 1.3rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.header .header-auth a {
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  color: var(--dark-color);
+  font-size: 1.3rem;
+}
+.header .header-auth a:hover {
+  cursor: pointer;
+}
+.description {
+  font-size: 1rem;
+  margin: 5rem 0 1.8rem 0;
+  z-index: 2;
+  text-align: center;
+}
+.description a {
+  color: var(--genre-background);
+}
+.admin-new {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 2rem;
+}
+.admin-new .admin-new-poll,
+.admin-new .admin-new-group {
+  margin: 0.6rem 0 0 0;
+  padding: 0.6rem 1.1rem;
+  background-color: var(--login-button-background);
+  border-radius: 11px;
+  box-shadow: 0 0 8px 1px var(--login-button-background);
+}
+.admin-new .admin-new-poll a,
+.admin-new .admin-new-group a {
+  text-transform: uppercase;
+  color: var(--login-button-color);
+}
+.admin-new .admin-new-poll:hover,
+.admin-new .admin-new-group:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  box-shadow: 0 1px 8px 1px var(--login-button-background);
+}
+.polls-container {
+  width: 60%;
+  margin: 0 0 4rem 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.polls-container .polls-title {
+  align-self: flex-start;
+  margin: 1.2rem 0 0 2rem;
+  font-size: 2rem;
+  text-shadow: 0 0 5px var(--poll-background);
+}
+.polls-container details {
+  width: 100%;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 1rem 0;
+}
+.polls-container details summary {
+  margin: 1.2rem 0 0 2rem;
+  font-size: 2rem;
+  text-shadow: 0 0 5px var(--poll-background);
+}
+.polls-container details p {
+  text-align: center;
+  margin: 0 0 1rem 0;
+}
+.polls-container .poll {
+  background-color: var(--poll-background);
+  box-shadow: 0 2px 8px 2px #b9b4b4;
+  width: 100%;
+  margin: 1.7rem 0;
+  padding: 1.9rem 2.3rem 1.4rem 2.3rem;
+  border-radius: 10px;
+  position: relative;
+  transition: 0.5s ease;
+}
+.polls-container .poll .poll-id {
+  position: absolute;
+  top: -0.8rem;
+  left: -1.2rem;
+  background-color: var(--id-background);
+  color: var(--id-color);
+  border: 3px solid var(--id-border);
+  padding: 0.4rem 0.8rem;
+  border-radius: 2rem;
+}
+.polls-container .poll .poll-genre {
+  width: fit-content;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  background-color: var(--genre-background);
+  color: var(--genre-color);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  margin: -0.2rem 0 0 0;
+}
+.polls-container .poll .poll-question {
+  font-size: 2rem;
+  padding: 1rem 0.3rem;
+  width: 100%;
+  color: var(--question-color);
+}
+.polls-container .poll .poll-times {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  position: relative;
+  color: var(--time-color);
+}
+.polls-container .poll .poll-times .poll-createdAt,
+.polls-container .poll .poll-times .poll-deadline,
+.polls-container .poll .poll-times a {
+  padding: 0.5rem;
+}
+.polls-container .poll .poll-times .poll-createdAt::after {
+  content: "→";
+  font-size: 20px;
+  vertical-align: middle;
+  margin-left: 1rem;
+  color: #7b7676;
+}
+.polls-container .poll .poll-times .poll-deadline {
+  margin-right: auto;
+}
+.polls-container .poll .poll-times form,
+.polls-container .poll .poll-times a {
+  margin-left: auto;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  border-radius: 1rem;
+  padding: 0.5rem 1.2rem;
+  border: none;
+}
+.polls-container .poll .poll-times a {
+  background-color: var(--submitVote-background);
+  color: var(--submitVote-color);
+}
+.polls-container .poll .poll-times a:hover {
+  cursor: pointer;
+  box-shadow: inset 0 0 0 3px var(--submitVote-background);
+  background-color: var(--poll-background);
+}
+.polls-container .poll .poll-votes {
+  position: absolute;
+  top: -0.8rem;
+  right: -1.2rem;
+  background-color: var(--votes-border);
+  color: var(--submitVote-color);
+  border: 3px solid var(--votes-color);
+  padding: 0.5rem 0.8rem;
+  border-radius: 2rem;
+}
+.polls-container .poll .poll-admin-edit,
+.polls-container .poll .poll-admin-delete {
+  position: absolute;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  border-radius: 1rem;
+  padding: 0.5rem 1.2rem;
+  border: none;
+  bottom: -0.8rem;
+}
+.polls-container .poll .poll-admin-edit:hover,
+.polls-container .poll .poll-admin-delete:hover {
+  cursor: pointer;
+  background-color: var(--poll-background);
+}
+.polls-container .poll .poll-admin-edit {
+  left: -1.3rem;
+  background-color: var(--edit-background);
+  color: var(--edit-color);
+  box-shadow: inset 0 0 0 3px var(--edit-border);
+}
+.polls-container .poll .poll-admin-edit:hover {
+  box-shadow: inset 0 0 0 3px var(--edit-border);
+}
+.polls-container .poll .poll-admin-delete {
+  right: -1.3rem;
+  background-color: var(--delete-background);
+  color: var(--delete-color);
+  box-shadow: inset 0 0 0 3px var(--delete-border);
+}
+.polls-container .poll .poll-admin-delete:hover {
+  box-shadow: inset 0 0 0 3px var(--delete-border);
+}
+.polls-container .poll .expired {
+  background-color: var(--error-color);
+  border-color: var(--error-border);
+  color: var(--expired-color);
+}
+.polls-container .poll hr {
+  margin-top: 1rem;
+}
+.polls-container .poll .results-container {
+  width: 99%;
+  margin: 1rem auto 0 auto;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1.7rem;
+  color: var(--question-color);
+  position: relative;
+  flex-wrap: wrap;
+}
+.polls-container .poll .results-container .answer-container {
+  background-color: var(--poll-options);
+  width: 22%;
+  height: 13rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px 0.5px var(--dark-background);
+  text-transform: uppercase;
+  text-align: center;
+}
+.polls-container .poll .results-container .answer-container p {
+  font-size: 0.9rem;
+}
+.polls-container .poll .results-container .answer-container .vote {
+  font-size: 2rem;
+  opacity: 0.5;
+}
+.polls-container .poll .results-container .answer-container hr {
+  margin-top: 0.5rem;
+  margin-bottom: auto;
+  width: 100%;
+}
+.polls-container .poll .results-container .answer-container .percentage {
+  font-size: 1.7rem;
+}
+.polls-container .poll:hover {
+  transition: 0.5s ease;
+  box-shadow: 0 2px 8px 2px var(--votes-border);
+  cursor: grab;
+}
+.login-container,
+.register-container {
+  background-color: var(--poll-background);
+  color: var(--question-color);
+  width: 35%;
+  position: absolute;
+  margin-top: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem 0;
+  border-radius: 1rem;
+}
+.login-container .logo,
+.register-container .logo {
+  margin: 0 0 1.5rem 0;
+}
+.login-container .logo img,
+.register-container .logo img {
+  width: 5rem;
+}
+.login-container .login-title,
+.register-container .login-title,
+.login-container .register-title,
+.register-container .register-title {
+  text-transform: uppercase;
+  font-size: 20px;
+  margin: 0.2rem 0 0 0;
+}
+.login-container form,
+.register-container form {
+  width: 90%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0.2rem 0 0.5rem 0;
+  padding: 0.4rem 0 1rem 0;
+  transition: 0.2s ease all;
+}
+.login-container form input,
+.register-container form input,
+.login-container form button,
+.register-container form button,
+.login-container form a,
+.register-container form a {
+  width: 70%;
+  margin: 0.7rem 0;
+  padding: 0.7rem 0.7rem;
+  border-radius: 0.4rem;
+  border: none;
+}
+.login-container form input,
+.register-container form input,
+.login-container form a,
+.register-container form a {
+  outline: none;
+  font-size: 16px;
+}
+.login-container form span,
+.register-container form span {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.45;
+  transition: 0.2s ease all;
+}
+.login-container form .floating-username,
+.register-container form .floating-username {
+  top: 12%;
+  left: 18%;
+  transition: 0.2s ease all;
+}
+.login-container form .floating-password,
+.register-container form .floating-password {
+  top: 39%;
+  left: 18%;
+  transition: 0.2s ease all;
+}
+.login-container form .floating-register-username,
+.register-container form .floating-register-username {
+  top: 8%;
+  left: 18%;
+  transition: 0.2s ease all;
+}
+.login-container form .floating-register-email,
+.register-container form .floating-register-email {
+  top: 25.5%;
+  left: 18%;
+  transition: 0.2s ease all;
+}
+.login-container form .floating-register-password,
+.register-container form .floating-register-password {
+  top: 43.2%;
+  left: 18%;
+  transition: 0.2s ease all;
+}
+.login-container form .floating-confirm-password,
+.register-container form .floating-confirm-password {
+  top: 61%;
+  left: 18%;
+  transition: 0.2s ease all;
+}
+.login-container form .login-username:focus + .floating-username,
+.register-container form .login-username:focus + .floating-username,
+.login-container form .login-username:not(:placeholder-shown) + .floating-username,
+.register-container form .login-username:not(:placeholder-shown) + .floating-username {
+  top: 4%;
+  left: 17%;
+  font-size: 14px;
+  transition: 0.2s ease all;
+  opacity: 0.6;
+}
+.login-container form .login-password:focus + .floating-password,
+.register-container form .login-password:focus + .floating-password,
+.login-container form .login-password:not(:placeholder-shown) + .floating-password,
+.register-container form .login-password:not(:placeholder-shown) + .floating-password {
+  top: 31%;
+  left: 17%;
+  font-size: 14px;
+  transition: 0.2s ease all;
+  opacity: 0.6;
+}
+.login-container form .register-username:focus + .floating-register-username,
+.register-container form .register-username:focus + .floating-register-username,
+.login-container form .register-username:not(:placeholder-shown) + .floating-register-username,
+.register-container form .register-username:not(:placeholder-shown) + .floating-register-username {
+  top: 2.5%;
+  left: 17%;
+  font-size: 14px;
+  transition: 0.2s ease all;
+  opacity: 0.6;
+}
+.login-container form .register-email:focus + .floating-register-email,
+.register-container form .register-email:focus + .floating-register-email,
+.login-container form .register-email:not(:placeholder-shown) + .floating-register-email,
+.register-container form .register-email:not(:placeholder-shown) + .floating-register-email {
+  top: 20.5%;
+  left: 17%;
+  font-size: 14px;
+  transition: 0.2s ease all;
+  opacity: 0.6;
+}
+.login-container form .register-password:focus + .floating-register-password,
+.register-container form .register-password:focus + .floating-register-password,
+.login-container form .register-password:not(:placeholder-shown) + .floating-register-password,
+.register-container form .register-password:not(:placeholder-shown) + .floating-register-password {
+  top: 38%;
+  left: 17%;
+  font-size: 14px;
+  transition: 0.2s ease all;
+  opacity: 0.6;
+}
+.login-container form .register-confirm-password:focus + .floating-confirm-password,
+.register-container form .register-confirm-password:focus + .floating-confirm-password,
+.login-container form .register-confirm-password:not(:placeholder-shown) + .floating-confirm-password,
+.register-container form .register-confirm-password:not(:placeholder-shown) + .floating-confirm-password {
+  top: 56%;
+  left: 17%;
+  font-size: 14px;
+  transition: 0.2s ease all;
+  opacity: 0.6;
+}
+.login-container form button,
+.register-container form button {
+  margin: 1.4rem 0;
+  background-color: var(--login-button-background);
+  color: var(--login-button-color);
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 0 4px 0.4px var(--login-button-color);
+}
+.login-container form button:hover,
+.register-container form button:hover {
+  background-color: var(--poll-background);
+  box-shadow: inset 0 0 0 3px var(--login-button-background), 0 0 4px 0.4px var(--login-button-color);
+}
+.login-container form .error,
+.register-container form .error {
+  color: var(--error-color);
+  font-size: 14px;
+  position: absolute;
+  opacity: 1;
+}
+.login-container form .error-login-username,
+.register-container form .error-login-username {
+  top: 22%;
+  right: 18%;
+}
+.login-container form .error-login-password,
+.register-container form .error-login-password {
+  top: 49%;
+  right: 18%;
+}
+.login-container form .error-register-username,
+.register-container form .error-register-username {
+  top: 14%;
+  right: 18%;
+}
+.login-container form .error-register-email,
+.register-container form .error-register-email {
+  top: 31.8%;
+  right: 18%;
+}
+.login-container form .error-register-password,
+.register-container form .error-register-password {
+  top: 49.5%;
+  right: 18%;
+}
+.login-container form .error-register-confirm-password,
+.register-container form .error-register-confirm-password {
+  top: 67%;
+  right: 18%;
+}
+.login-container hr,
+.register-container hr {
+  width: 90%;
+  margin: 0 0 2rem 0;
+}
+.login-container p,
+.register-container p {
+  color: var(--time-color);
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  margin-bottom: -5px;
+}
+.login-container .go-to-register,
+.register-container .go-to-register,
+.login-container .go-to-login,
+.register-container .go-to-login {
+  width: 90%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.login-container .go-to-register form input,
+.register-container .go-to-register form input,
+.login-container .go-to-login form input,
+.register-container .go-to-login form input {
+  background-color: var(--login-button-background);
+  color: var(--login-button-color);
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 0 4px 0.4px var(--login-button-color);
+}
+.login-container .go-to-register form input:hover,
+.register-container .go-to-register form input:hover,
+.login-container .go-to-login form input:hover,
+.register-container .go-to-login form input:hover {
+  background-color: var(--poll-background);
+  box-shadow: inset 0 0 0 3px var(--login-button-background), 0 0 4px 0.4px var(--login-button-color);
+}
+.login-container a,
+.register-container a {
+  margin: 1rem 0 0 0;
+  font-size: 14px;
+  color: var(--login-button-color);
+}
+.poll-container {
+  background-color: var(--poll-background);
+  color: var(--question-color);
+  width: 70%;
+  margin: 10rem 0 3.5rem 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem 0;
+  border-radius: 1rem;
+}
+.poll-container .poll-genre-selection {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  margin-right: auto;
+  margin-left: 10%;
+}
+.poll-container .poll-genre-selection .poll-genre,
+.poll-container .poll-genre-selection .poll-selection {
+  width: fit-content;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  margin: 1.5rem auto 0 0;
+}
+.poll-container .poll-genre-selection .poll-genre {
+  background-color: var(--genre-background);
+  color: var(--genre-color);
+  margin-right: 1rem;
+}
+.poll-container .poll-genre-selection .poll-selection {
+  background-color: var(--selection-background);
+  color: var(--selection-color);
+  margin-left: 1rem;
+}
+.poll-container .poll-question {
+  font-size: 2rem;
+  padding: 0.8rem 0.3rem;
+  width: 70%;
+  margin: 1rem 1rem;
+  margin-right: auto;
+  margin-left: 4%;
+}
+.poll-container .poll-createdAt,
+.poll-container .poll-deadline {
+  position: absolute;
+  color: var(--time-color);
+  margin: 0.4rem 0 0 auto;
+  right: 5%;
+}
+.poll-container .poll-createdAt {
+  top: 1.5rem;
+}
+.poll-container .poll-createdAt::after {
+  content: "↓";
+  font-size: 24px;
+  position: absolute;
+  right: 45%;
+  top: 1.25rem;
+}
+.poll-container .poll-deadline {
+  top: 4.5rem;
+}
+.poll-container .poll-options-total {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.poll-container .poll-options-total .polls-form {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.poll-container .poll-options-total .polls-form .poll-options {
+  width: 70%;
+}
+.poll-container .poll-options-total .polls-form .poll-options .poll-option {
+  background-color: var(--poll-options);
+  box-shadow: 0 0 8px 2px var(--time-color);
+  width: 92%;
+  border-radius: 10px;
+  margin: 1.5rem 0;
+  margin-top: 0;
+  margin-right: auto;
+  margin-left: 5%;
+  padding: 1rem 2rem;
+  position: relative;
+}
+.poll-container .poll-options-total .polls-form .poll-options .poll-option input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 5;
+  opacity: 0;
+}
+.poll-container .poll-options-total .polls-form .poll-options .poll-option .poll-option-percentage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  font-size: 1.7rem;
+}
+.poll-container .poll-options-total .polls-form .poll-options .poll-option .slider-percentage {
+  background-color: var(--slider-background);
+  height: 10px;
+  padding: 0.5rem 0 0 0;
+  margin: 0.8rem 0 0 0;
+  border-radius: 5px;
+  position: relative;
+}
+.poll-container .poll-options-total .polls-form .poll-options .poll-option .slider-percentage .slider-value {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 10px;
+  border-radius: 5px;
+}
+.poll-container .poll-options-total .polls-form .poll-options .poll-option .num-votes {
+  padding: 0.5rem 0 0 0;
+  margin: 0.5rem 0 0 0;
+  opacity: 0.52;
+}
+.poll-container .poll-options-total .polls-form .poll-options .poll-option:hover {
+  cursor: pointer;
+  transition: 0.5s ease;
+  box-shadow: 0 2px 8px 2px var(--votes-color);
+  transform: scale(1.02);
+}
+.poll-container .poll-options-total .polls-form .poll-options .poll-option:last-child {
+  margin-bottom: 2rem;
+}
+.poll-container .poll-options-total .polls-form .poll-options .selected {
+  box-shadow: 0 0 8px 2px var(--time-color), inset 0 0 0 4px var(--submitVote-background);
+  transition: 0s;
+  margin-left: 7.5%;
+}
+.poll-container .poll-options-total .polls-form .poll-options .selected:hover {
+  cursor: pointer;
+  transition: 0.5s ease;
+  box-shadow: 0 2px 8px 2px var(--votes-color), inset 0 0 0 4px var(--submitVote-background);
+  transform: scale(1.02);
+}
+.poll-container .poll-options-total .polls-form .poll-total {
+  width: 30%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: auto;
+  margin-bottom: 2rem;
+  margin-right: 1rem;
+}
+.poll-container .poll-options-total .polls-form .poll-total .total {
+  margin-top: 1rem;
+  width: 90%;
+  padding: 1.5rem;
+  text-transform: uppercase;
+  font-size: 2.3rem;
+  text-align: center;
+  background-color: var(--poll-options);
+  box-shadow: 0 0 4px 1px var(--submitVote-color);
+  border-radius: 0.5rem;
+}
+.poll-container .poll-options-total .polls-form .poll-total .total p {
+  margin-top: 0.5rem;
+  margin-bottom: 0.2rem;
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+.poll-container .poll-options-total .polls-form .poll-total .total hr {
+  margin: 1rem;
+  margin-top: 1.5rem;
+  color: black;
+}
+.poll-container .poll-options-total .polls-form .poll-total .total .error-message {
+  color: var(--error-color);
+  font-size: 1rem;
+  text-transform: none;
+}
+.poll-container .poll-options-total .polls-form .poll-total .total button {
+  width: 90%;
+  padding: 1rem 0.7rem;
+  border-radius: 0.4rem;
+  border: none;
+  background-color: var(--submitVote-background);
+  color: var(--submitVote-color);
+  text-transform: uppercase;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+.poll-container .poll-options-total .polls-form .poll-total .total button:hover {
+  cursor: pointer;
+  box-shadow: inset 0 0 0 3px var(--submitVote-background);
+  background-color: var(--poll-options);
+}
+.poll-container span {
+  color: var(--submitVote-color);
+  text-transform: uppercase;
+  font-size: 1rem;
+  text-shadow: 0 0 5px var(--submitVote-background);
+}
+.poll-container a {
+  margin: 1rem 0 0 0;
+  font-size: 14px;
+  color: var(--login-button-color);
+}
+.poll-container a:hover {
+  cursor: pointer;
+}
+.admin-container {
+  width: 60%;
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1.5rem;
+}
+.admin-container .admin-title {
+  align-self: flex-start;
+  font-size: 2rem;
+  text-shadow: 0 0 5px var(--poll-background);
+}
+.admin-container .groups {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+.admin-container .admin-create-container {
+  background-color: var(--poll-background);
+  color: var(--question-color);
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 1rem;
+}
+.admin-container .admin-create-container span {
+  color: var(--error-color);
+  position: absolute;
+  bottom: -3px;
+  right: 2rem;
+  font-size: 14px;
+}
+.admin-container .admin-create-container form {
+  width: 100%;
+  position: relative;
+}
+.admin-container .admin-create-container form div {
+  margin: 1rem 0.5rem 1.5rem 0.5rem;
+  width: 100%;
+  position: relative;
+}
+.admin-container .admin-create-container form div p {
+  margin: 0.4rem 0.2rem;
+  opacity: 0.7;
+  position: relative;
+}
+.admin-container .admin-create-container form div input {
+  width: 98%;
+  height: 5rem;
+  resize: none;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 10px 0.1px var(--time-color);
+  transition: 0.5s ease;
+  position: relative;
+}
+.admin-container .admin-create-container form div input:focus {
+  transition: 0.5s ease;
+  box-shadow: inset 0 0 0 3px var(--submitVote-background), 0 0 10px 0.1px var(--time-color);
+}
+.admin-container .admin-create-container form .create-option-container {
+  width: 100%;
+  position: relative;
+}
+.admin-container .admin-create-container form .create-option-container div {
+  margin: 1rem 0.5rem 1.5rem 0;
+  width: 100%;
+  position: relative;
+}
+.admin-container .admin-create-container form .create-option-container div p {
+  margin: 0.4rem 0.2rem;
+  opacity: 0.7;
+}
+.admin-container .admin-create-container form .create-option-container div input {
+  height: 3rem;
+  position: relative;
+}
+.admin-container .admin-create-container form .create-option-container div span {
+  bottom: -0.5rem;
+}
+.admin-container .admin-create-container form .change-num-option {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 2rem;
+  margin-top: -10px;
+  margin-left: 2rem;
+  margin-bottom: 0;
+  position: relative;
+}
+.admin-container .admin-create-container form .change-num-option .increase-option,
+.admin-container .admin-create-container form .change-num-option .decrease-option {
+  width: fit-content;
+  background-color: var(--login-button-background);
+  color: var(--login-button-color);
+  cursor: pointer;
+  box-shadow: 0 0 4px 0.4px var(--login-button-color);
+  padding: 0.6rem 1rem;
+  text-transform: uppercase;
+  border-radius: 0.3rem;
+  transition: 0.5s ease;
+  position: relative;
+}
+.admin-container .admin-create-container form .change-num-option .increase-option:hover,
+.admin-container .admin-create-container form .change-num-option .decrease-option:hover {
+  transition: 0.5s ease;
+  background-color: var(--poll-background);
+  box-shadow: inset 0 0 0 3px var(--login-button-background), 0 0 4px 0.4px var(--login-button-color);
+}
+.admin-container .admin-create-container form hr {
+  margin-top: 1rem;
+}
+.admin-container .admin-create-container form .multiple-select {
+  width: 100%;
+}
+.admin-container .admin-create-container form .multiple-select select {
+  width: 10rem;
+  text-align: center;
+  border-radius: 0.3rem;
+  padding: 0.6rem 1rem;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 8px 0.5px var(--time-color);
+}
+.admin-container .admin-create-container form .multiple-select select option {
+  padding: 0.2rem;
+  border: none;
+  outline: none;
+  border-radius: 0.3rem;
+}
+.admin-container .admin-create-container form .multiple-select select option:hover,
+.admin-container .admin-create-container form .multiple-select select option:focus {
+  cursor: pointer;
+  background-color: #b9d7fb;
+}
+.admin-container .admin-create-container form .group-category {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.2rem;
+  position: relative;
+}
+.admin-container .admin-create-container form .group-category select {
+  height: 2.2rem;
+  border: none;
+  border-radius: 0.3rem;
+  width: 60%;
+  padding: 0.6rem 1rem;
+  outline: none;
+}
+.admin-container .admin-create-container form .group-category select:hover {
+  cursor: pointer;
+}
+.admin-container .admin-create-container form .create-poll-options {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0;
+}
+.admin-container .admin-create-container form .create-poll-options .create-category,
+.admin-container .admin-create-container form .create-poll-options .options-multiple,
+.admin-container .admin-create-container form .create-poll-options .options-end-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  position: relative;
+}
+.admin-container .admin-create-container form .create-poll-options .create-category input,
+.admin-container .admin-create-container form .create-poll-options .options-multiple input,
+.admin-container .admin-create-container form .create-poll-options .options-end-date input,
+.admin-container .admin-create-container form .create-poll-options .create-category select,
+.admin-container .admin-create-container form .create-poll-options .options-multiple select,
+.admin-container .admin-create-container form .create-poll-options .options-end-date select {
+  height: 2.2rem;
+  border: none;
+  border-radius: 0.3rem;
+  width: 80%;
+  padding: 0.6rem 1rem;
+  outline: none;
+}
+.admin-container .admin-create-container form .create-poll-options .create-category input:hover,
+.admin-container .admin-create-container form .create-poll-options .options-multiple input:hover,
+.admin-container .admin-create-container form .create-poll-options .options-end-date input:hover,
+.admin-container .admin-create-container form .create-poll-options .create-category select:hover,
+.admin-container .admin-create-container form .create-poll-options .options-multiple select:hover,
+.admin-container .admin-create-container form .create-poll-options .options-end-date select:hover {
+  cursor: pointer;
+}
+.admin-container .admin-create-container form .create-poll-options .create-category span,
+.admin-container .admin-create-container form .create-poll-options .options-multiple span,
+.admin-container .admin-create-container form .create-poll-options .options-end-date span {
+  bottom: -1.5rem;
+}
+.admin-container .admin-create-container form .create-poll-options .create-category .checkbox,
+.admin-container .admin-create-container form .create-poll-options .options-multiple .checkbox,
+.admin-container .admin-create-container form .create-poll-options .options-end-date .checkbox {
+  width: 2.2rem;
+}
+.admin-container .admin-create-container form button {
+  padding: 0.6rem 1rem;
+  margin: 1rem 0;
+  background-color: var(--submitVote-background);
+  color: var(--submitVote-color);
+  text-transform: uppercase;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  box-shadow: 0 0 10px 0.02px var(--submitVote-color);
+  transition: 0.5s ease;
+}
+.admin-container .admin-create-container form button:hover {
+  transition: 0.5s ease;
+  background-color: var(--poll-background);
+  box-shadow: inset 0 0 0 3px var(--submitVote-background), 0 0 4px 0.4px var(--submitVote-color);
+}
+.admin-container .admin-create-container a {
+  margin: 0 auto;
+  font-size: 14px;
+  color: var(--login-button-color);
+}
+.admin-container .admin-groups {
+  color: var(--question-color);
+  width: 100%;
+  margin: 0 0 1rem 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  position: relative;
+}
+.admin-container .admin-groups .group {
+  background-color: var(--poll-background);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px 0.5px var(--time-color);
+  padding: 1.5rem 1rem;
+  border-radius: 0.5rem;
+  position: relative;
+}
+.admin-container .admin-groups .group .group-title {
+  text-transform: uppercase;
+}
+.admin-container .admin-groups .group .group-member {
+  padding: 0.2rem 0;
+  opacity: 0.6;
+}
+.admin-container .admin-groups .group hr {
+  margin: 0.6rem auto;
+  width: 80%;
+}
+.admin-container .admin-groups .group:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}

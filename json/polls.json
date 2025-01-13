@@ -1,0 +1,66 @@
+{
+    "1": {
+        "id": "1",
+        "genre": "Art",
+        "question": "What is your favorite colour?",
+        "options": [
+            "Red",
+            "Green",
+            "Blue"
+        ],
+        "group": "",
+        "isMultiple": false,
+        "createdAt": "2024-04-27",
+        "deadline": "2024-05-10",
+        "answers": {
+            "Red": [],
+            "Green": [],
+            "Blue": []
+        },
+        "voted": []
+    },
+    "2": {
+        "id": "2",
+        "genre": "Animals",
+        "question": "What is your favorite animal?",
+        "options": [
+            "Dog",
+            "Cat",
+            "Wolf",
+            "Bear"
+        ],
+        "group": "",
+        "isMultiple": false,
+        "createdAt": "2024-04-27",
+        "deadline": "2024-05-10",
+        "answers": {
+            "Dog": [],
+            "Cat": [],
+            "Wolf": [],
+            "Bear": []
+        },
+        "voted": []
+    },
+    "3": {
+        "id": "3",
+        "genre": "Tv",
+        "question": "What is your favorite film?",
+        "options": [
+            "Harry Potter",
+            "Star Wars",
+            "The Hobbit",
+            "Fast and Furious"
+        ],
+        "group": "",
+        "isMultiple": false,
+        "createdAt": "2024-04-27",
+        "deadline": "2024-05-10",
+        "answers": {
+            "Harry Potter": [],
+            "Star Wars": [],
+            "The Hobbit": [],
+            "Fast and Furious": []
+        },
+        "voted": []
+    }
+}

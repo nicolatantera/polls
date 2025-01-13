@@ -1,0 +1,16 @@
+{
+    "aAbSR248Av": {
+        "id": "aAbSR248Av",
+        "username": "admin",
+        "email": "admin@mail.com",
+        "password": "$2y$10$t\/2t1.Lf.unHigxCLv8dgOJZuExvD8AGIPMkwzhkQJPGUNNWJXxry",
+        "isAdmin": true
+    },
+    "fkY8BkfDHI": {
+        "id": "fkY8BkfDHI",
+        "username": "username",
+        "email": "username@mail.com",
+        "password": "$2y$10$lJunDPh9ZMqoxkEtwq8ZaOK9m4qjIMqJYNp7OAmRrT9IoAZfNcGgq",
+        "isAdmin": false
+    }
+}
