@@ -1,40 +1,36 @@
-Nicola Tantera
-BHC2GJ
-Web-programming - PHP home assignment
-This solution was submitted by the stundent named above for a Web-programming assignment.
-Hereby I declare that the solution is my own work. I did not copy or use solutions from a third party. I did not share this solution with fellow students, and I did not publish it. 
-According to the Academic Regulations for Students (Eötvös Loránd University Organisational and Operational Regulations – Volume 2, Section 74/C), a student purporting the intellectual property of others as their own [...] is committing a disciplinary offence.
-The worst result of a disciplinary offence can be the expulsion of the student.
+# Poll Website
 
-## Minimum requirements (must be completed, 8 pts)
+This is a PHP-based poll website that allows users to interact with polls and view results. The application is simple yet functional, designed to manage polls and user interactions efficiently.
 
-[x] Main page: displayed (0 pts)
-[x] Main page: all created polls are displayed (1 pt)
-[x] Main page: the data about the polls can be seen - poll ID, time of creation, voting deadline (1 pt)
-[x] Main page: expired polls are displayed seperately, both sections are ordered by the date of creating in descending order (newest poll is at the top) (1 pt)
-[x] Main page: clicking on a poll/button redirects to the voting page (1 pt)
-[x] Voting page: the data about the given poll are shown - the question text, the possible options, and the submit button saves the vote (2 pts)
-[x] Voting page: if the voting form is filled properly (an option has been chosen) the user is notified about the successful vote. An error is displayed if the form is sent without selecting an option. (0.5 pts)
-[x] Poll creation page: the question, the possible options (two or more), the voting deadline can be entered on the page and the poll (including the time of creation) can be saved (1.5 pts)
+## Features
 
-## Basic tasks (12 pts)
+### User Functionality:
+- **Vote on Polls**: Users can add their votes to existing polls.
+- **Edit or Remove Votes**: Users have the flexibility to change or delete their votes before the poll expiration date.
+- **View Results**: Poll results are displayed after the poll has expired.
 
-[x] Login: error handling (1 pt)
-[x] Login: successful login (1 pt)
-[x] Registration form: contains appropriate elements (0.5 pts)
-[x] Registration form: validation, error messages, keeping the form state (1.5 pt)
-[x] Registration form: successful registration (0.5 points)
-[x] Main page: the voting button redirects to the login page if the user is not logged in. The button redirects to the voting page if the user is logged in. (1 pt)
-[x] Main page: the button's caption shows whether a vote has been submitted by the user to that poll. (e.g. if there was a vote then change to text to *Update/edit vote*) (0.5 pt)
-[x] Main page: the vote cannot be changed after the deadline and the results are only shown after the deadline. (1 pt)
-[x] Admin feature: the admin can log in with the given credentials (0.5 pts)
-[x] Admin feature: a new poll can ONLY be created by the admin user (0.5 pts)
-[x] Admin feature: when creating the poll, the admin can determine (using radio or checkbox input) whether selecting multiple options is allowed (1 pt)
-[x] Admin feature: the admin user can delete an existing poll (1 pt)
-[x] Voting page: the voting page shows whether selecting multiple options is allowed and if it is, then multiple options can actually be selected and the votes are saved correctly (2 pts)
-[x] **Late submission: -0.5 pts / started day!**
+### Admin Functionality:
+- **Create Polls**: Admins can create new polls for users to participate in.
+- **Edit Polls**: Admins can modify existing polls, including changing options or expiration dates.
+- **Delete Polls**: Admins have the ability to delete polls when necessary.
 
-## Extra tasks (extra 5 pts)
+### User Accounts:
+- **Registration**: Users can register for an account to participate in polls.
+- **Login**: Existing users can log in to access their account and vote on polls.
 
-[x] Admin feature: the admin user can create groups from the existing users and can assign polls to the groups with one click at the creation of the poll (3 pts)
-[x] Admin feature: when the admin user is logged in, an additional button is shown on the main page where the admin can edit the data of the poll which is updated in the saved data (2 pts)
+### Data Storage:
+- All poll data, votes, and user information are securely stored in a `.json` file for simplicity and easy management.
+
+## Getting Started
+
+1. Clone this repository:
+   git clone https://github.com/nicolatantera/poll.git
+   
+3. Place the project in your local server directory (e.g., `htdocs` for XAMPP or `www` for WAMP) or start a server using the extension "PHP Server" inside Visual Studio Code.
+
+4. Ensure that your PHP environment is properly set up and running.
+
+5. Open your browser and navigate to:
+   http://localhost/poll
+
+Enjoy your poll session!
