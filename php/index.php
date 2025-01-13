@@ -12,11 +12,13 @@
 
 
 
-
-
-    function getPercentage($polls, $option, $i) {
-        return round((count($polls[$i]['answers'][$option]) * 100)/(getTotalVotes($polls, $i)));
+  function getPercentage($polls, $option, $i) {
+    $totalVotes = getTotalVotes($polls, $i);
+    if ($totalVotes === 0) {
+        return 0; // Return 0% if there are no votes
     }
+    return round((count($polls[$i]['answers'][$option]) * 100) / $totalVotes);
+  }
 
     function getTotalVotes($polls, $i) {
         $sum = 0;
